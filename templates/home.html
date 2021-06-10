@@ -1,0 +1,36 @@
+<html>
+<head>
+    <style>
+
+        .container{
+            background: #acb6e5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            height:500px;
+            width: 500px;
+            margin: 0 auto;
+            text-align:center;
+            border:1px solid #000;
+            font-family: "Microsoft JhengHei UI Light";
+        }
+        button{
+            height:50px;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form method="post">
+        {% csrf_token %}
+            <ul class="contactList">
+                <li id="url" class="url_ip">Enter Url - {{ form.long_url }}</li>
+            </ul>
+        <button type="submit" name="save">Submit</button>
+        </form>
+        <h3>Url Token - {{a}}</h3>
+        <a href="{{request.build_absolute_uri}}{{a}}">{{request.build_absolute_uri}}{{a}}</a>
+    </div>
+</body>
+</html>
